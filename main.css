@@ -35,6 +35,15 @@ body {
     text-align: center;
 }
 
+h1::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: #000;
+    margin: auto;
+    width: 90px;
+}
+
 .gallery h6 {
     margin-bottom: 20px;
     letter-spacing: 2px;
