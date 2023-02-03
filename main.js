@@ -73,6 +73,20 @@ let gallery = [
 
 let galleryDisplay = document.querySelector("#galleryDisplay");
 let filterBtns       = document.querySelectorAll(".filter-btn");
+let searchField     = document.querySelector(".search");
+let textAlert       = document.querySelector(".text-alert");
+
+searchField.addEventListener("input",filterGalleryDisplay);
+function filterGalleryDisplay() {
+    let term = this.value;
+    let currentGallery = gallery.filter(cat => {
+        if(cat.category.toLowerCase().indexOf(term) !== -1) {
+            return cat;
+        }
+    });
+    galleryDisplayItems(currentGallery);
+}
+
 
 
 filterBtns.forEach(btn => {
