@@ -72,15 +72,33 @@ let gallery = [
 ];
 
 let galleryDisplay = document.querySelector("#galleryDisplay");
+let filterBtns       = document.querySelectorAll(".filter-btn");
 
 
-window.addEventListener("DOMContentLoaded", () => {
-    galleryDisplayItems();
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        let category = e.currentTarget.dataset.id;
+        let galleryCategory = gallery.filter((item) => {
+            if(item.category === category) {
+                return item;
+            }
+        });
+        if(category === "all") {
+            galleryDisplayItems(gallery);
+        } else {
+            galleryDisplayItems(galleryCategory);
+        }
+    });
 });
 
 
-function galleryDisplayItems() {
-    let galleryItems = gallery.map((item) => {
+window.addEventListener("DOMContentLoaded", () => {
+    galleryDisplayItems(gallery);
+});
+
+
+function galleryDisplayItems(item) {
+    let galleryItems = item.map((item) => {
         return `<div class="col-md-5">
         <div class="gallery">
             <h6 class="text-center">${item.category}</h6>
