@@ -31,10 +31,23 @@ body {
 }
 
 .gallery {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.gallery h6 {
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .gallery-img img {
     border-radius: 10px;
     outline: 4px solid #ddd;
+    width: 350px;
+    height: 250px;
+}
+
+.gallery-footer {
+    margin-top: 10px;
 }
